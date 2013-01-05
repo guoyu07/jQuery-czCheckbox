@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Lancer" />
+	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.czCheckbox.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/style.css"  />
+    <title>czCheckbox Demo</title>
+    
+    <script type="text/javascript">
+    $(document).ready(function() {
+    
+		$('#checklist1').czCheckbox({
+			initCallback: function() {
+				//alert( 'init successfully.' );	
+			},
+		
+			forbidCallback: function() {
+				alert( this.getValue() + ' is not allow checked.');
+			}
+		});
+	
+				
+		$('#checklist2').czCheckbox({
+		
+			inputName : 'language',
+
+			changeCallback: function() {
+			   
+				if ( this.isCheck() == true ) {
+					log( this.getValue() + ' is checked.');
+					log( 'you have checked items:' + this.getCheckedValue());
+					log( 'you have checked ' + this.getCheckedCounts() + ' items');
+				} else {
+					log( this.getValue() + ' is not checked');
+				}
+			},
+			emptyCallback: function() {
+				log ( 'please checked least 1 item' );
+			}
+		});
+		  
+		$("#setLanguage").bind('click', function() {
+			$('#checklist2').czCheckbox('instance').setChecked($('#Korean'));
+			$('#checklist2').czCheckbox('instance').setChecked('FR');
+		})
+	});
+		
+	function log($message) {
+		var debug = false;
+		if ( debug ) {
+			if (window.console && window.console.log)
+				window.console.log($message);
+			else
+				alert($message);
+		} else {
+			alert($message);
+		} 
+	}
+  </script>
+</head>
+
+<body>
+<table id="checklist1" width="600" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right">Demo 1</td>
+    <td colspan="2">Choose your hobby:</td>
+  </tr>
+  <tr>
+    <td width="60" align="right"></td>
+    <td width="30"><input type="checkbox" id="Football" value="football" checked="checked" name="Hobby[]" /></td>
+    <td><label for="Football">Football</label></td>
+  </tr>
+  <tr>
+    <td align="right"></td>
+    <td width="30"><input type="checkbox" id="Volleyball" value="volleyball" name="Hobby[]" disabled="disabled" /></td>
+    <td><label for="Volleyball">Volleyball</label></td>
+  </tr>
+  <tr>
+    <td align="right"></td>
+    <td width="30"><input type="checkbox" id="Basketball" value="basketball" name="Hobby[]" /></td>
+    <td><label for="Basketball">Basketball</label></td>
+  </tr>
+  <tr>
+    <td align="right"></td>
+    <td width="30"><input type="checkbox" id="Swimming" value="swimming" name="Hobby[]" /></td>
+    <td><label for="Swimming">Swimming</label></td>
+  </tr>
+  <tr>
+    <td align="right">&nbsp;</td>
+    <td colspan="8">
+    <input value="getCheckedCounts" onclick="alert($('#checklist1').czCheckbox('instance').getCheckedCounts())" type="button" />
+    <input value="getCheckedValue" onclick="alert($('#checklist1').czCheckbox('instance').getCheckedValue())" type="button" />
+    <input value="getCheckedText" onclick="alert($('#checklist1').czCheckbox('instance').getCheckedText())" type="button" /><br />
+    <input value="checkVolleyball" onclick="$('#checklist1').czCheckbox('instance').setChecked('volleyball');" type="button" />
+    <input value="unCheckVolleyball" onclick="$('#checklist1').czCheckbox('instance').setUnChecked($('#Volleyball'));" type="button" /><br />
+    <input value="set volleyball able" onclick="$('#checklist1').czCheckbox('instance').setAbled('volleyball');" type="button" />
+    <input value="set volleyball disabled" onclick="$('#checklist1').czCheckbox('instance').setDisabled('volleyball');" type="button" />
+    </td>
+  </tr>
+</table>
+
+
+<table id="checklist2" width="600" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="60" align="right">Demo 2</td>
+    <td colspan="8" align="left">Choose your mastery of the language</td>
+  </tr>
+  <tr>
+    <td width="60" align="right">&nbsp;</td>
+    <td width="40"><input type="checkbox" id="English" value="EN" name="language" /></td>
+    <td><label for="English">English</label></td>
+    <td width="40"><input type="checkbox" id="German" value="GE" name="language" /></td>
+    <td><label for="German">German</label></td>
+    <td width="40"><input type="checkbox" id="French" value="FR" name="language" /></td>
+    <td><label for="French">French</label></td>
+    <td width="40"><input type="checkbox" id="Japanese" value="JP" name="language" /></td>
+    <td><label for="Japanese">Japanese</label></td>
+  </tr>
+  <tr>
+    <td width="60" align="right">&nbsp;</td>
+    <td width="40"><input type="checkbox" id="Chinese" value="ZH" name="language" /></td>
+    <td><label for="Chinese">Chinese</label></td>
+    <td width="40"><input type="checkbox" id="Korean" value="KR" name="language" /></td>
+    <td><label for="Korean">Korean</label></td>
+    <td width="40"></td>
+    <td></td>
+    <td width="40"></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td align="right">&nbsp;</td>
+    <td colspan="8"><input id="setLanguage" value="Checked French And Korean" type="button" /></td>
+  </tr>
+</table>
+</body>
+</html>

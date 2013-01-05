@@ -1,0 +1,6 @@
+#checklist1 td,#checklist2 td {padding:5px; line-height:30px;}
+
+.czCheckbox .default {background-image: url('bg.gif') ; background-repeat:no-repeat; background-position:0 0; height:29px; width:29px;} 
+.czCheckbox .default_checked {background-position:0 -29px;  } 
+.czCheckbox .disabled{background-position:0 -58px;}
+.czCheckbox .disabled_checked {background-position:0 -87px;}

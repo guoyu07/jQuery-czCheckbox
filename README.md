@@ -1,109 +1,84 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>czCheckbox jQuery plugin Description</title>
-<style type="text/css">
-	body {padding:10px; margin:0; font-family:Arial; font-size:12px; text-align:center;}
-	h1, h2, h3, h4{font-weight:400; margin:0; padding:0;}
-	h1 {font-size:36px; font-family:Gautami; font-weight:bold; font-style:italic; border-bottom:5px solid #eeeeee; }
-	h2 {font-size:24px;}
-	h3 {font-size:18px; padding-top:10px; line-height:24px;}
-	h4 {font-size:14px;}
-	dl, ul, ol, p { margin:0; padding:0; font-size:12px; line-height:24px;}
-	p {font-style:italic;}
-	li {margin-left:30px;}
-	a {color:#979797; text-decoration:none;}
-	a:hover {text-decoration:underline;}
-	pre {font-family:Verdana; font-size:12px; line-height:30px; color:#3076be; background-color:#dddddd; width:95%; border:1px dashed #c9c9c9; margin-top:0.5em; padding:15px;}
-	#docs{text-align:left; margin:0 auto; width:1000px;}
-	.wrap { padding-bottom:20px;}
-	ul.install {padding-left:70px;list-style:none;}
-	dl.options {padding-left:100px;}
-	dl.options dt, dl.options dd { margin:0; padding:0; line-height:24px; width:600px;}
-	dl.options dt {background-color:#dddddd; padding:0px 10px; height:24px; }
-	dl.options dt strong {float:left;}
-	dl.options dt i {float:right;}
-	dl.options dd { padding:2px 10px;}
-</style>
-</head>
+czCheckbox jQuery plugin
+===
 
-<body>
-<div id="docs">
-    <h1>czCheckbox jQuery plugin</h1>
-    <h3>Introduction</h3>
-    <p><a href="http://code.google.com/p/czui/">czCheckbox</a> is a <a href="http://jquery.com">jQuery</a> plugin that allows you to turn default browser checkbox into much more attractive.  </p>
+Introduction
+---
+
+czCheckbox is a [jQuery](http://jquery.com) plugin that allows you to turn default browser checkbox into much more attractive.
     
-    <p class="wrap">The plugin is usable not only for end users, but also for developers. czCheckbox has a lot of configuration options so you can modify its behaviour and appearance. From this version the core CSS file is separated from the CSS that provides checkbox's appearance, and now you are able to easily create new skins for the plugin.</p>
+The plugin is usable not only for end users, but also for developers. czCheckbox has a lot of configuration options so you can modify its behaviour and appearance. From this version the core CSS file is separated from the CSS that provides checkbox's appearance, and now you are able to easily create new skins for the plugin.
     
-	<h3>Examples</h3>
-    <p class="wrap">Please view <a href="../../demos/czCheckbox/demo.html">demo page</a> to see the possibilities of <em>czCheckbox</em>.</p>
+Examples
+---
+
+Please view demo page to see the possibilities of *czCheckbox*.
     
-    <h3>Installation</h3>
-    <p>Please follow these instructions to install czCheckbox:</p>
-	<ul class="install wrap">
-        <li><a href="http://code.google.com/p/czui/downloads/list">Download</a> and unpack the archive.</li>
-		<li>Include jQuery and plugin files to your web page:
-        	<pre>&lt;script type="text/javascript" src="/js/jquery-1.4.2.min.js"&gt;&lt;/script&gt;<br />&lt;script type="text/javascript" src="/js/jquery.czCheckbox.js"&gt;&lt;/script&gt;</pre>
-		</li>
-		<li>Include core or your skin CSS files to your page:
-        	<pre>
-&lt;link rel="stylesheet" type="text/css" href="images/style.css" /&gt;<br />&lt;link rel="stylesheet" type="text/css" href="images/skin_name.css" /&gt;</pre>
-		</li>
-        <li>Done! Now make your checkboxs look and behave sexy!
-        	<pre>$("#checkboxlist").czCheckbox();
-$("#checkboxlist").czCheckbox({
-    changeCallback: function(){
-        alert('changed')
-    }
-});</pre>
-  		</li>
-	</ul> 
+Installation
+---
+
+Please follow these instructions to install czCheckbox:
+
+Download and unpack the archive.
+Include jQuery and plugin files to your web page:
+
+	<script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.czCheckbox.js"></script>
+	
+
+Include core or your skin CSS files to your page:
+
+	<link rel="stylesheet" type="text/css" href="images/style.css" />
+	<link rel="stylesheet" type="text/css" href="images/skin_name.css" />
+	
+Done! Now make your checkboxs look and behave sexy!
+	
+	$("#checkboxlist").czCheckbox();
+	$("#checkboxlist").czCheckbox({
+        changeCallback: function(){
+            alert('changed')
+    	}
+	});
+
          
-    <h3>Usage and configuration options</h3>
-    <p><em>czCheckbox</em> has a number of configuration options that are passed to the plugin in the form of JavaScript object.</p>			
-    <p>The full list of options is:</p>
+Usage and configuration options
+---
+
+*czCheckbox* has a number of configuration options that are passed to the plugin in the form of JavaScript object.
+The full list of options is:   
+
+**className** *String, Default: null*  
+The class name of checkbox list wrap.  
+**inputName** *String, Default: null*  
+The name of checkbox you need.  
+**initCallback** *Funtion, Default: null*  
+function that is called at the end of constrictor.  
+**emptyCallback** *Funtion, Default: null*  
+function that is called when the checkbox has no choice.  
+**forbidCallback** *Funtion, Default: null*  
+function that is called when the disabled checkbox is selected.  
+**changeCallback** *Funtion, Default: null*  
+function that is called when the selection of checkbox is changed.  
+
+In this version I have separated core CSS and presentational CSS, so now it's possible to create new skins for *czCheckbox*. The download package contains one example skin. Feel free to create your own based on it.
     
-    <dl class="options wrap">
-    	<dt><strong>className</strong> <i>String, Default: null</i></dt>
-    	<dd>The class name of checkbox list wrap.</dd>
-    	<dt><strong>inputName</strong> <i>String, Default: null</i></dt>
-    	<dd>The name of checkbox you need.</dd>
-		<dt><strong>initCallback</strong> <i>Funtion, Default: null</i></dt>
-    	<dd>function that is called at the end of constrictor.</dd>
-        <dt><strong>emptyCallback</strong> <i>Funtion, Default: null</i></dt>
-    	<dd>function that is called when the checkbox has no choice.</dd>
-        <dt><strong>forbidCallback</strong> <i>Funtion, Default: null</i></dt>
-    	<dd>function that is called when the disabled checkbox is selected.</dd>
-        <dt><strong>changeCallback</strong> <i>Funtion, Default: null</i></dt>
-    	<dd>function that is called when the selection of checkbox is changed.</dd>
-    </dl>
-    
-    <p class="wrap">In this version I have separated core CSS and presentational CSS, so now it's possible to create new skins for <em>czCheckbox</em>. The download package contains one example skin. Feel free to create your own based on it.</p>
-    
-    <h3>Browser compatibility</h3>
-    <p><em>czCheckbox</em> has been tested and works on the following browsers:</p>
-    <ul class="wrap">
-        <li>Internet Explorer 6.0 +</li>
-        <li>Chrome</li>
-        <li>Firefox</li>
-        <li>Opera</li>
-    </ul>
-    
-    <h3>Support project</h3>
-    <p>Every user of <em>czCheckbox</em> adds some value to it, so you help me by just using it. However, if you want to help more, you can do the following:</p>
-    <ul class="wrap">
-        <li>Tell the world about <em>czCheckbox</em>. You can write an atricle or a blog post about it or just tell your friends/collegues about it.</li>
-        <li>Test it on browsers that are not currently supported "officially".</li>
-        <li>Report a bug.</li>
-        <li>If you are web designer/developer, I will be glad to collaborate with you. If you have some suggestions on design/programming, feel free to email me at Kadalashvili at Vladimir at gmail dot com.</li>
-    </ul>
-    <p>Please don't donate money, it's needless.</p>
- 
-    <h3>Resources</h3>
-    <ul class="wrap">
-      	<li><a href="http://code.google.com/p/czui/source/checkout">czCheckbox</a> on the Google Code</li>
-    </ul>
-</div>
-</body>
-</html>
+Browser compatibility
+---
+
+*czCheckbox* has been tested and works on the following browsers:
+
+Internet Explorer 6.0 +
+Chrome
+Firefox
+Opera
+
+Support project
+---
+
+Every user of *czCheckbox* adds some value to it, so you help me by just using it. However, if you want to help more, you can do the following:
+
+Tell the world about *czCheckbox*. You can write an atricle or a blog post about it or just tell your friends/collegues about it.
+Test it on browsers that are not currently supported "officially".
+Report a bug.
+If you are web designer/developer, I will be glad to collaborate with you. If you have some suggestions on design/programming, feel free to email me at Kadalashvili at Vladimir at gmail dot com.
+
+Please don't donate money, it's needless.

@@ -88,7 +88,7 @@
                 //set label which checkbox has.
                 $label = $("label[for='" + _that._$checkboxs[item].attr('id') + "']");
                 if ( typeof $label == 'object' && $label.attr('tagName') == 'LABEL') {
-                    _that._$labels[item] = $label.removeAttr('for').css('cursor', 'pointer');
+                    _that._$labels[item] = $label.removeAttr('for').css('cursor', 'pointer').addClass('default');
                 } else {
                     _that._$labels[item] = null;
                 }
